@@ -73,11 +73,12 @@ const { User, Post, Comment } = require('../../models');
         // expects username and password}
         User.findOne({
           where: {
-            username: req.body.username
+            username: req.body.username,
+            password: req.body.password
           }
         }).then(dbUserData => {
           if (!dbUserData) {
-            res.status(400).json({ message: 'No user with that email address!' });
+            res.status(400).json({ message: 'No user with that username!' });
             return;
           }
       
@@ -155,11 +156,12 @@ router.post('/login', (req, res) => {
   // expects username and password
   User.findOne({
     where: {
-      username: req.body.username
+      username: req.body.username,
+      password: req.body.password
     }
   }).then(dbUserData => {
     if (!dbUserData) {
-      res.status(400).json({ message: 'No user with that email address!' });
+      res.status(400).json({ message: 'No user with that name!' });
       return;
     }
 

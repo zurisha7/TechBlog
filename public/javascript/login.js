@@ -8,7 +8,7 @@ async function loginFormHandler(event) {
       const response = await fetch('/api/users/login', {
         method: 'post',
         body: JSON.stringify({
-
+          username,
           password
         }),
         headers: { 'Content-Type': 'application/json' }
@@ -39,7 +39,7 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
@@ -49,4 +49,3 @@ async function loginFormHandler(event) {
   document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
   
   document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
-  
