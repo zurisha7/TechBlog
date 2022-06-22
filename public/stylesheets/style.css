@@ -7,22 +7,30 @@
     padding: 0;
     margin: 0;
     font-family: sans-serif;
-    color: #333;
+    background: rgb(148,148,142);
+background: linear-gradient(90deg, rgba(148,148,142,1) 0%, rgba(216,224,14,0.07886904761904767) 39%, rgba(170,170,98,0.5522584033613445) 100%);
   }
   
   a {
     text-decoration: none;
-    color: #225ca3;
+    color: green;
+    font-size: 20px;
+    font-family: fantasy;
     font-weight: bold;
     transition: color .1s;
   }
   
   a:hover {
-    color: #3486eb;
+    color: #46023178;
   }
   
+  .meta {
+    color: black;
+    font-family: fantasy;
+  } 
+
   button {
-    background-color: #225ca3;
+    background-color: #46023178;
     border: 0;
     padding: 1%;
     color: white;
@@ -33,12 +41,16 @@
   }
   
   button:hover {
-    background-color: #3486eb;
+    background-color: #46023178;
   }
   
   .post-list {
-    margin: 0;
-    padding: 0;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
   }
   
   textarea, input {
@@ -49,7 +61,7 @@
   
   textarea:focus, input:focus {
     outline: none;
-    border: 1px solid #3486eb;
+    border: 1px solid #46023178;
   }
   
   textarea {
@@ -80,10 +92,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 1%;
+    background: rgb(148,148,142);
+background: linear-gradient(90deg, rgba(148,148,142,1) 0%, rgba(14,224,158,0.07886904761904767) 39%, rgba(170,145,98,0.5522584033613445) 100%);
   }
   
   header h1 {
-    font-size: 1em;
+    font-size: 40px;
+    flex-direction: column;
+    
+
   }
   
   main {
@@ -97,8 +114,9 @@
     padding: 0;
     cursor: pointer;
     text-decoration: none;
-    color: #225ca3;
-    font-size: 100%;
+    color: #46023178;
+    font-size: 20px;
+    font-family: fantasy;
     font-weight: bold;
     transition: color .1s;
     margin-left: 16px;
@@ -117,6 +135,10 @@
     background-color: #ff643d;
   }
   
+  textarea{
+    background-color: beige;
+    width: 100;
+  }
   .post {
     margin-bottom: 2%;
     line-height: 150%;
@@ -131,15 +153,6 @@
   .edit-link {
     display: block;
     margin: -1.5% 0 2% 0;
-  }
-  
-  .upvote-btn {
-    background-color: #197d0f;
-    transition: background-color .1s;
-  }
-  
-  .upvote-btn:hover {
-    background-color: #1f9c13;
   }
   
   .comment-form {
