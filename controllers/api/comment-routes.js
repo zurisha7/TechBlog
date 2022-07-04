@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require("../../utils/auth");
 
+//route to get all comments
 router.get('/', (req, res) => {
   Comment.findAll()
     .then(dbCommentData => res.json(dbCommentData))
@@ -10,7 +11,8 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+ 
+//route to get one comment
 router.get('/:id', (req, res) => {
   if(req.session)
   Comment.findOne({
@@ -30,7 +32,7 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//route to create a comment with the authorization helper
 router.post('/', withAuth, (req, res) => {
   // expects => {comment_text:", user_id: , post_id: }
   if (req.session) {
@@ -47,7 +49,7 @@ router.post('/', withAuth, (req, res) => {
   }
 });
 
-
+//route to delete a comment
 router.delete('/:id', withAuth, (req, res) => {
   if (req.session) {
     Comment.destroy({

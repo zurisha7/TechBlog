@@ -3,7 +3,7 @@ async function loginFormHandler(event) {
   
     const username = document.querySelector('#username-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
-  
+        //if there is a value in username and password log user in
     if (username && password) {
       const response = await fetch('/api/users/login', {
         method: 'post',
@@ -16,6 +16,7 @@ async function loginFormHandler(event) {
   
       if (response.ok) {
         document.location.replace('/')
+        
       } else {
         alert("Username or password incorrect!!");
       }
@@ -27,6 +28,7 @@ async function loginFormHandler(event) {
   
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
+   //if there is a user name and password provided save user info and log them in
   
     if (username && password) {
       const response = await fetch('/api/users', {

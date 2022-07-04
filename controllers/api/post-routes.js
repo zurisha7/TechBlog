@@ -4,7 +4,7 @@ const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-// get all users
+// get all posts
 router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
@@ -34,7 +34,8 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+ 
+//get one post
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -74,6 +75,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+//create a post
 router.post('/', (req, res) => {
   // expects title: '', post_text: '', user_id: }
   if (req.session) {
@@ -90,6 +92,7 @@ router.post('/', (req, res) => {
   }
 });
 
+//update a post
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
@@ -115,6 +118,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
+//delete a post
 router.delete('/:id', withAuth, (req, res) => {
   if(req.session) {
   Post.destroy({

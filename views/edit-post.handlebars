@@ -1,5 +1,7 @@
+
+
 <article>
-      {{#if loggedIn}}
+     <!--place to edit posts--> 
   <h2>
     Edit Post
   </h2>
@@ -13,7 +15,7 @@
 
     <div>
       
-      |
+      |<!--uses the helper to make comment pluralized if more than one!-->
       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
     </div>
     <button type="submit">Save post</button>
@@ -22,6 +24,7 @@
   
 </article>
 
+<!--Add comments-->
 <form class="comment-form">
   <div>
     <textarea name="comment-body"></textarea>
@@ -33,7 +36,7 @@
 </form>
 
 {{> comments post.comments}}
-{{/if}}
+
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
 <script src="/javascript/comment.js"></script>

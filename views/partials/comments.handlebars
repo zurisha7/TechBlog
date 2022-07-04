@@ -1,9 +1,11 @@
-
+<!--section for all comments in a partial so can be used many times -->
 <div class="comments">
   {{#each this}}
   <section class="comment">
     <div class="meta">
+      <!--get the username that created the comment and also the date formatted into easier to read context-->
       {{user.username}} on {{format_date created_at}}
+
     </div>
     <div class="text">
       {{comment_text}}
