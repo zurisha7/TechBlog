@@ -75,7 +75,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // expects title: '', post_text: '', user_id: 1}
+  // expects title: '', post_text: '', user_id: }
   if (req.session) {
     Post.create({
       title: req.body.title,
@@ -90,7 +90,7 @@ router.post('/', (req, res) => {
   }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
       title: req.body.title,
@@ -116,23 +116,26 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
-  console.log('id', req.params.id);
+  if(req.session) {
   Post.destroy({
     where: {
       id: req.params.id
     }
   })
-    .then(dbPostData => {
+ .then(dbPostData => {
       if (!dbPostData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
+  
       res.json(dbPostData);
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
+  }
 });
+
 
 module.exports = router;

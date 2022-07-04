@@ -18,6 +18,7 @@ background: linear-gradient(90deg, rgba(148,148,142,1) 0%, rgba(216,224,14,0.078
     font-family: fantasy;
     font-weight: bold;
     transition: color .1s;
+    margin: 20px;
   }
   
   a:hover {
@@ -25,7 +26,7 @@ background: linear-gradient(90deg, rgba(148,148,142,1) 0%, rgba(216,224,14,0.078
   }
   
   .meta {
-    color: black;
+    color: purple;
     font-family: fantasy;
   } 
 
@@ -51,17 +52,19 @@ background: linear-gradient(90deg, rgba(148,148,142,1) 0%, rgba(216,224,14,0.078
     flex-direction: column;
     flex-wrap: nowrap;
     text-align: center;
+    border: 3px solid purple;
+    border-radius: 5px;
   }
   
   textarea, input {
     padding: .5%;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
   }
   
   textarea:focus, input:focus {
     outline: none;
-    border: 1px solid #46023178;
+    border: 2px solid #46023178;
   }
   
   textarea {
@@ -70,7 +73,7 @@ background: linear-gradient(90deg, rgba(148,148,142,1) 0%, rgba(216,224,14,0.078
   }
   
   form > div {
-    margin-bottom: 2%;
+    margin-bottom: 15px;
   }
   
   form label {
@@ -87,34 +90,46 @@ background: linear-gradient(90deg, rgba(148,148,142,1) 0%, rgba(216,224,14,0.078
   }
   
   header {
-    border-bottom: 1px solid #ccc;
+    width: 100%;
+    border-bottom: 2px solid #ccc;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1%;
+    padding: 10px;
     background: rgb(148,148,142);
-background: linear-gradient(90deg, rgba(148,148,142,1) 0%, rgba(14,224,158,0.07886904761904767) 39%, rgba(170,145,98,0.5522584033613445) 100%);
+    
   }
   
   header h1 {
     font-size: 40px;
     flex-direction: column;
-    
-
   }
   
+  nav { 
+    display: flex;
+
+  }
   main {
     flex: 1;
     padding: 2% 4%;
   }
   
-  .btn-no-style {
+  ul {
+    list-style-type: none;
+  }
+
+  label {
+    color: purple;
+    font-family: fantasy;
+  }
+
+  .logout-btn  {
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
     text-decoration: none;
-    color: #46023178;
+    color: green;
     font-size: 20px;
     font-family: fantasy;
     font-weight: bold;
@@ -128,7 +143,7 @@ background: linear-gradient(90deg, rgba(148,148,142,1) 0%, rgba(14,224,158,0.078
   }
   
   .delete-post-btn {
-    background-color: #d41414;
+    background-color: purple;
   }
   
   .delete-post-btn:hover {
@@ -142,15 +157,18 @@ background: linear-gradient(90deg, rgba(148,148,142,1) 0%, rgba(14,224,158,0.078
   .post {
     margin-bottom: 2%;
     line-height: 150%;
+    border: 3px solid purple;
+    border-radius: 5px;
   }
   
   .post .title span {
-    font-style: italic;
+    font-style: fantasy;
     font-size: 90%;
     color: #7d7d7d;
   }
   
   .edit-link {
+    color:black;
     display: block;
     margin: -1.5% 0 2% 0;
   }
@@ -183,6 +201,7 @@ background: linear-gradient(90deg, rgba(148,148,142,1) 0%, rgba(14,224,158,0.078
   }
   
   footer {
+    
     border-top: 1px solid #ccc;
     display: flex;
     justify-content: center;

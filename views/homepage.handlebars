@@ -1,7 +1,22 @@
-<ol class="post-list">
+
+
+<div>
+  <form class="new-post-form">
+    
+      <label for="post-title">Title</label>
+      <input type="text" class="post-title" name="post-title" />
+      <label for="post_text">Post</label>
+      <input type="text" class="post-text" name="post-text" />
+    
+    <button type="submit" class="createBtn">Create!!</button>
+
+  </form>
+</div>
+<ul class="post-list">
   {{#each posts as |post|}}
   <li>
     {{> post-info post}}
   </li>
   {{/each}}
-</ol>
+</ul>
+<script src="/javascript/add-post.js"></script>

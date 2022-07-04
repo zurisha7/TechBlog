@@ -1,23 +1,27 @@
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
+      {{#if loggedIn}}
   <h2>
     Edit Post
   </h2>
   <form class="edit-post-form">
     <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{ post.post_text }})</span>
+      <label for="title">Title</label>
+      <input name="post-title" type="text" value="{{title}}" />
+      <label for="post_text">Post</label>
+      <input name="post-text" type="text" value="{{post_text}}" />
     </div>
+
     <div>
       
       |
       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
     </div>
     <button type="submit">Save post</button>
+    </form>
     <button type="button" class="delete-post-btn">Delete post</button>
-  </form>
+  
 </article>
-{{#if loggedIn}}
+
 <form class="comment-form">
   <div>
     <textarea name="comment-body"></textarea>
@@ -27,10 +31,10 @@
     <button type="submit" class="comment-btn">Add comment</button>
   </div>
 </form>
-{{/if}}
+
 {{> comments post.comments}}
-{{#if loggedIn}}
+{{/if}}
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
 <script src="/javascript/comment.js"></script>
-{{/if}}
+

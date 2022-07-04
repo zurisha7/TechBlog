@@ -4,9 +4,10 @@ const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
+  console.log(req.session)
     Post.findAll({
-        where: {
+       where: {
             //use the ID fr0m the session
             user_id: req.session.user_id
         },
@@ -35,7 +36,7 @@ router.get('/', withAuth, (req, res) => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
       res.render('dashboard', {
         posts,
-        loggedIn: req.session.loggedIn
+        loggedIn: true
       });
     })
     .catch(err => {
@@ -81,7 +82,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     
           res.render('edit-post', {
             post,
-            loggedIn: req.session.loggedIn
+            loggedIn: true
           });
         })
         .catch(err => {
@@ -89,6 +90,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
           res.status(500).json(err);
         });
     });
-    
 
+   
+    
 module.exports = router;
